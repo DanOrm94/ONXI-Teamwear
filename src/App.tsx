@@ -75,7 +75,6 @@ export default function App() {
           </div>
           <div className="hero-art" aria-label="ONXI Teamwear hero image">
             <img className="hero-image" src={heroImage} alt="ONXI Teamwear" />
-            <div className="hero-image-overlay" />
           </div>
         </section>
 
