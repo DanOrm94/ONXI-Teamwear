@@ -1,6 +1,9 @@
-.hero-art{height:620px;position:relative;display:grid;place-items:center;overflow:hidden;background:#111315;border:1px solid var(--line);aspect-ratio:4/5;animation:hero-frame-bounce 5s ease-in-out infinite;will-change:transform}
-.hero-image{width:100%;height:100%;display:block;object-fit:contain;object-position:center;filter:saturate(.9) contrast(1.05)}
+.hero-art{height:620px;position:relative;display:grid;place-items:center;overflow:visible;background:transparent;border:0;aspect-ratio:auto;animation:hero-frame-bounce 5s ease-in-out infinite;will-change:transform;padding:26px 30px}
+.hero-art::before{content:"";position:absolute;inset:12px 8px;border:1px solid rgba(255,255,255,.22);clip-path:polygon(0 0,14% 0,14% 1px,86% 1px,86% 0,100% 0,100% 100%,86% 100%,86% calc(100% - 1px),14% calc(100% - 1px),14% 100%,0 100%);pointer-events:none}
+.hero-art::after{content:"FIELD STUDY / 001";position:absolute;right:18px;bottom:2px;padding-left:18px;font-size:9px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.5);white-space:nowrap}
+.hero-image{width:88%;height:88%;display:block;object-fit:contain;object-position:center;background:#111315;border:1px solid rgba(255,255,255,.42);padding:10px;box-sizing:border-box;filter:saturate(.9) contrast(1.05);transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .6s ease;will-change:transform}
 .hero-image-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,10,11,.08),transparent 45%,rgba(9,10,11,.18));pointer-events:none}
-@keyframes hero-frame-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@media (max-width:800px){.hero-art{height:auto;width:100%;min-height:360px;aspect-ratio:4/5}.hero-image{width:100%;height:100%;object-fit:contain;object-position:center}}
-@media (prefers-reduced-motion:reduce){.hero-art{animation:none}}
+@keyframes hero-frame-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (hover:hover) and (pointer:fine){.hero-art:hover .hero-image{transform:scale(1.018);filter:saturate(1) contrast(1.06)}}
+@media (max-width:800px){.hero-art{height:58vw;min-height:360px;padding:18px}.hero-art::before{inset:8px 4px}.hero-art::after{right:10px;bottom:0;font-size:8px}.hero-image{width:90%;height:90%;padding:7px}}
+@media (prefers-reduced-motion:reduce){.hero-art{animation:none}.hero-image{transition:none}}
