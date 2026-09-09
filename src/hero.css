@@ -1,3 +1,5 @@
+.site-shell{background:linear-gradient(180deg,#070809 0%,#0b0d0e 28%,#151819 62%,#25282a 100%)}
+.hero{background:linear-gradient(115deg,#070809 0%,#0b0d0e 42%,#1a1d1f 100%)}
 .hero-art{height:620px;position:relative;display:grid;place-items:center;overflow:visible;background:transparent;border:0;aspect-ratio:auto;animation:hero-frame-bounce 5s ease-in-out infinite;will-change:transform;padding:26px 30px}
 .hero-art::before{content:"";position:absolute;inset:12px 8px;border:1px solid rgba(255,255,255,.22);clip-path:polygon(0 0,14% 0,14% 1px,86% 1px,86% 0,100% 0,100% 100%,86% 100%,86% calc(100% - 1px),14% calc(100% - 1px),14% 100%,0 100%);pointer-events:none}
 .hero-art::after{content:"FIELD STUDY / 001";position:absolute;right:18px;bottom:2px;padding-left:18px;font-size:9px;font-weight:700;letter-spacing:.24em;color:rgba(255,255,255,.5);white-space:nowrap}
@@ -5,5 +7,5 @@
 .hero-image-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,10,11,.08),transparent 45%,rgba(9,10,11,.18));pointer-events:none}
 @keyframes hero-frame-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media (hover:hover) and (pointer:fine){.hero-art:hover .hero-image{transform:scale(1.018);filter:saturate(1) contrast(1.06)}}
-@media (max-width:800px){.hero-art{height:58vw;min-height:360px;padding:18px}.hero-art::before{inset:8px 4px}.hero-art::after{right:10px;bottom:0;font-size:8px}.hero-image{width:90%;height:90%;padding:7px}}
+@media (max-width:800px){.hero{background:linear-gradient(180deg,#070809 0%,#141719 100%)}.hero-art{height:58vw;min-height:360px;padding:18px}.hero-art::before{inset:8px 4px}.hero-art::after{right:10px;bottom:0;font-size:8px}.hero-image{width:90%;height:90%;padding:7px}}
 @media (prefers-reduced-motion:reduce){.hero-art{animation:none}.hero-image{transition:none}}
