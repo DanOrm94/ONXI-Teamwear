@@ -66,23 +66,26 @@ export default function App() {
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero" style={{ background: '#050505', color: '#fff' }}>
           <div className="hero-copy">
-            <p className="eyebrow">01 / PERFORMANCE TEAMWEAR</p>
+            <p className="eyebrow" style={{ color: '#8f8f96' }}>01 / PERFORMANCE TEAMWEAR</p>
             <h1>BUILT<br /><em>FOR THE</em><br />GAME.</h1>
-            <p className="hero-text">Football essentials engineered for movement, confidence and the 90 minutes that matter.</p>
+            <p className="hero-text" style={{ color: '#8f8f96' }}>Football essentials engineered for movement, confidence and the 90 minutes that matter.</p>
             <button className="primary-button" onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}>Shop the collection <span>↗</span></button>
           </div>
-          <div className="hero-art spline-hero" aria-label="Interactive ONXI 3D hero">
+          <div className="hero-art spline-hero" aria-label="Interactive ONXI 3D orb" style={{ background: '#050505', borderRadius: 0, boxShadow: 'none' }}>
             <iframe
               className="spline-frame"
               src={splineSceneUrl}
               title="ONXI interactive 3D orb"
               loading="eager"
               allow="autoplay; fullscreen; xr-spatial-tracking"
+              style={{ transform: 'scale(1.18)', transformOrigin: 'center right' }}
             />
-            <div className="spline-fade" aria-hidden="true" />
-            <span className="spline-label">INTERACTIVE / ONXI 01</span>
+            <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 2 }}>
+              <div style={{ position: 'absolute', inset: '0 auto 0 0', width: '56%', background: '#050505' }} />
+              <div style={{ position: 'absolute', right: 0, bottom: 0, width: 210, height: 82, background: '#050505' }} />
+            </div>
           </div>
         </section>
 
