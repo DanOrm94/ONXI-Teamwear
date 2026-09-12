@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { products, type Product } from './products'
+import MoltenMetal from './components/MoltenMetal'
 
 type CartItem = Product & { size: string; quantity: number }
 
 const money = (value: number) => `£${value.toFixed(2)}`
-const splineSceneUrl = 'https://my.spline.design/reactiveorb-M9WZmx1K8a10YWiXpdpxisQE/'
 
 function ProductVisual({ product }: { product: Product }) {
   return (
@@ -73,19 +73,28 @@ export default function App() {
             <p className="hero-text" style={{ color: '#8f8f96' }}>Football essentials engineered for movement, confidence and the 90 minutes that matter.</p>
             <button className="primary-button" onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}>Shop the collection <span>↗</span></button>
           </div>
-          <div className="hero-art spline-hero" aria-label="Interactive ONXI 3D orb" style={{ background: '#050505', borderRadius: 0, boxShadow: 'none' }}>
-            <iframe
-              className="spline-frame"
-              src={splineSceneUrl}
-              title="ONXI interactive 3D orb"
-              loading="eager"
-              allow="autoplay; fullscreen; xr-spatial-tracking"
-              style={{ transform: 'scale(1.18)', transformOrigin: 'center right' }}
+          <div className="hero-art spline-hero" aria-label="Interactive ONXI molten metal background">
+            <MoltenMetal
+              color1="#5227FF"
+              color2="#FF9FFC"
+              color3="#FFFFFF"
+              speed={0.35}
+              scale={4}
+              detail={3}
+              glow={1.6}
+              coreSize={0.1}
+              swirl={1}
+              fold={-0.2}
+              blackPoint={0.05}
+              brightness={1.3}
+              colorMode="molten"
+              grain={true}
+              grainIntensity={0.05}
+              mouseInteraction={true}
+              mouseStrength={0.3}
+              opacity={1.0}
+              className="hero-molten"
             />
-            <div aria-hidden="true" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 2 }}>
-              <div style={{ position: 'absolute', inset: '0 auto 0 0', width: '56%', background: '#050505' }} />
-              <div style={{ position: 'absolute', right: 0, bottom: 0, width: 210, height: 82, background: '#050505' }} />
-            </div>
           </div>
         </section>
 
