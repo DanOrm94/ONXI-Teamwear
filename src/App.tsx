@@ -75,8 +75,8 @@ export default function App() {
           </div>
           <div className="hero-art spline-hero" aria-label="Interactive ONXI molten metal background">
             <MoltenMetal
-              color1="#5227FF"
-              color2="#FF9FFC"
+              color1="#FFFFFF"
+              color2="#FFFFFF"
               color3="#FFFFFF"
               speed={0.35}
               scale={4}
