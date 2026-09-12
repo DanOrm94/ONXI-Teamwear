@@ -21,6 +21,8 @@
 .club-nav-centre small { display:block; margin-top:4px; color:#7e817f; font-size:8px; letter-spacing:.2em; }
 .club-cart-button { justify-self:end; border:0; background:transparent; color:inherit; font-size:10px; font-weight:800; letter-spacing:.15em; cursor:pointer; }
 .club-cart-button span { display:inline-grid; place-items:center; width:22px; height:22px; margin-left:8px; border-radius:50%; background:var(--club-accent); color:#080909; }
+.club-breadcrumb { display:flex; gap:10px; align-items:center; padding:16px 8vw 0; color:#777b79; font-size:9px; letter-spacing:.12em; text-transform:uppercase; }
+.club-breadcrumb a { color:#c8cbc8; text-decoration:none; }
 
 .club-hero { min-height:58vh; padding:8vw 8vw; display:grid; grid-template-columns:120px minmax(0,680px); gap:42px; align-items:center; border-bottom:1px solid rgba(255,255,255,.08); background:radial-gradient(circle at 75% 45%, rgba(214,255,0,.08), transparent 32%), linear-gradient(135deg,#101213,#090a0b 65%); }
 .club-hero-badge { width:100px; height:100px; display:grid; place-items:center; border:1px solid var(--club-accent); color:var(--club-accent); font-size:20px; font-weight:900; letter-spacing:.08em; transform:rotate(-6deg); }
@@ -60,6 +62,7 @@
 .club-size-row button { width:44px; height:40px; border:1px solid rgba(255,255,255,.14); background:transparent; color:#aaa; cursor:pointer; }
 .club-size-row button.selected { border-color:var(--club-accent); color:var(--club-accent); }
 .club-add-button { width:100%; min-height:48px; border:0; background:var(--club-accent); color:#080909; font-size:10px; font-weight:900; letter-spacing:.15em; cursor:pointer; }
+.club-add-button:disabled { cursor:not-allowed; opacity:.5; }
 
 .club-cart-panel { width:min(560px,100%); max-height:90vh; overflow:auto; padding:32px; background:#111314; border:1px solid rgba(255,255,255,.12); }
 .club-cart-heading { display:flex; justify-content:space-between; align-items:start; margin-bottom:28px; }
@@ -78,6 +81,7 @@
 @media (max-width: 760px) {
   .club-nav { grid-template-columns:1fr auto; }
   .club-nav-centre { display:none; }
+  .club-breadcrumb { padding-inline:7vw; }
   .club-hero { min-height:auto; padding:70px 7vw; grid-template-columns:1fr; gap:28px; }
   .club-hero-badge { width:78px; height:78px; font-size:16px; }
   .club-section-heading { align-items:start; flex-direction:column; }
