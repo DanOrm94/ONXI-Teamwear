@@ -1,5 +1,9 @@
 /// <reference types="@cloudflare/workers-types" />
 
+interface Env {
+  ASSETS: Fetcher
+}
+
 const pages: Record<string, { title: string; description: string; canonical: string; heading: string }> = {
   '/': {
     title: 'ONXI — Football Teamwear Built for the Game',
@@ -34,79 +38,78 @@ function normalisePath(pathname: string) {
 
 function pageResponse(request: Request, env: Env, page: (typeof pages)[string]) {
   const indexUrl = new URL('/index.html', request.url)
-  return env.ASSETS.fetch(new Request(indexUrl.toString(), request))
-    .then((response) => {
-      const rewritten = new HTMLRewriter()
-        .on('title', {
-          element(element) {
-            element.setInnerContent(page.title)
-          },
-        })
-        .on('meta[name="description"]', {
-          element(element) {
-            element.setAttribute('content', page.description)
-          },
-        })
-        .on('link[rel="canonical"]', {
-          element(element) {
-            element.setAttribute('href', page.canonical)
-          },
-        })
-        .on('meta[property="og:title"]', {
-          element(element) {
-            element.setAttribute('content', page.title)
-          },
-        })
-        .on('meta[property="og:description"]', {
-          element(element) {
-            element.setAttribute('content', page.description)
-          },
-        })
-        .on('meta[property="og:url"]', {
-          element(element) {
-            element.setAttribute('content', page.canonical)
-          },
-        })
-        .on('meta[name="twitter:title"]', {
-          element(element) {
-            element.setAttribute('content', page.title)
-          },
-        })
-        .on('meta[name="twitter:description"]', {
-          element(element) {
-            element.setAttribute('content', page.description)
-          },
-        })
-        .on('head', {
-          element(element) {
-            element.append(
-              `<script type="application/ld+json">${JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'Organization',
-                name: 'ONXI Teamwear',
-                url: 'https://www.onxigripsocks.co.uk/',
-                description: 'UK football teamwear and grip socks brand.',
-                areaServed: 'GB',
-                brand: { '@type': 'Brand', name: 'ONXI' },
-              })}</script>`,
-              { html: true },
-            )
-            element.append(
-              `<script type="application/ld+json">${JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.onxigripsocks.co.uk/' },
-                  ...(page.canonical === 'https://www.onxigripsocks.co.uk/' ? [] : [{ '@type': 'ListItem', position: 2, name: page.heading, item: page.canonical }]),
-                ],
-              })}</script>`,
-              { html: true },
-            )
-          },
-        })
+  return env.ASSETS.fetch(new Request(indexUrl.toString(), request)).then((response) => {
+    const rewritten = new HTMLRewriter()
+      .on('title', {
+        element(element) {
+          element.setInnerContent(page.title)
+        },
+      })
+      .on('meta[name="description"]', {
+        element(element) {
+          element.setAttribute('content', page.description)
+        },
+      })
+      .on('link[rel="canonical"]', {
+        element(element) {
+          element.setAttribute('href', page.canonical)
+        },
+      })
+      .on('meta[property="og:title"]', {
+        element(element) {
+          element.setAttribute('content', page.title)
+        },
+      })
+      .on('meta[property="og:description"]', {
+        element(element) {
+          element.setAttribute('content', page.description)
+        },
+      })
+      .on('meta[property="og:url"]', {
+        element(element) {
+          element.setAttribute('content', page.canonical)
+        },
+      })
+      .on('meta[name="twitter:title"]', {
+        element(element) {
+          element.setAttribute('content', page.title)
+        },
+      })
+      .on('meta[name="twitter:description"]', {
+        element(element) {
+          element.setAttribute('content', page.description)
+        },
+      })
+      .on('head', {
+        element(element) {
+          element.append(
+            `<script type="application/ld+json">${JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'ONXI Teamwear',
+              url: 'https://www.onxigripsocks.co.uk/',
+              description: 'UK football teamwear and grip socks brand.',
+              areaServed: 'GB',
+              brand: { '@type': 'Brand', name: 'ONXI' },
+            })}</script>`,
+            { html: true },
+          )
+          element.append(
+            `<script type="application/ld+json">${JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.onxigripsocks.co.uk/' },
+                ...(page.canonical === 'https://www.onxigripsocks.co.uk/' ? [] : [{ '@type': 'ListItem', position: 2, name: page.heading, item: page.canonical }]),
+              ],
+            })}</script>`,
+            { html: true },
+          )
+        },
+      })
 
-      return rewritten.transform(response)
-    })
+    return rewritten.transform(response)
+  })
 }
 
 export default {
@@ -118,8 +121,8 @@ export default {
       return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'GET, HEAD' } })
     }
 
-    if (path === '/shop' || path === '/story' || path === '/merseyvalley') {
-      return Response.redirect(`${url.origin}${path}/`, 308)
+    if (url.pathname === '/shop' || url.pathname === '/story' || url.pathname === '/merseyvalley') {
+      return Response.redirect(`${url.origin}${url.pathname}/`, 308)
     }
 
     const page = pages[path]
