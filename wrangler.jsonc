@@ -3,6 +3,7 @@
   "name": "onxi-teamwear",
   "main": "./src/worker.ts",
   "compatibility_date": "2026-09-12",
+  "workers_dev": true,
   "observability": {
     "enabled": true
   },
@@ -12,15 +13,5 @@
     "run_worker_first": true,
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
-  },
-  "routes": [
-    {
-      "pattern": "onxigripsocks.co.uk",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.onxigripsocks.co.uk",
-      "custom_domain": true
-    }
-  ]
+  }
 }
