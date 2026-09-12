@@ -11,6 +11,7 @@
     "types:cloudflare": "wrangler types"
   },
   "dependencies": {
+    "ogl": "^1.0.11",
     "react": "latest",
     "react-dom": "latest"
   },
