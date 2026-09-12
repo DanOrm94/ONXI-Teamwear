@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { products, type Product } from './products'
-import heroImage from './onxi image.jpg'
 
 type CartItem = Product & { size: string; quantity: number }
 
 const money = (value: number) => `£${value.toFixed(2)}`
+const splineSceneUrl = 'https://my.spline.design/reactiveorb-M9WZmx1K8a10YWiXpdpxisQE/'
 
 function ProductVisual({ product }: { product: Product }) {
   return (
@@ -73,8 +73,16 @@ export default function App() {
             <p className="hero-text">Football essentials engineered for movement, confidence and the 90 minutes that matter.</p>
             <button className="primary-button" onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}>Shop the collection <span>↗</span></button>
           </div>
-          <div className="hero-art" aria-label="ONXI Teamwear hero image">
-            <img className="hero-image" src={heroImage} alt="ONXI Teamwear" />
+          <div className="hero-art spline-hero" aria-label="Interactive ONXI 3D hero">
+            <iframe
+              className="spline-frame"
+              src={splineSceneUrl}
+              title="ONXI interactive 3D orb"
+              loading="eager"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+            />
+            <div className="spline-fade" aria-hidden="true" />
+            <span className="spline-label">INTERACTIVE / ONXI 01</span>
           </div>
         </section>
 
