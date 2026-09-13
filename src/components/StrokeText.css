@@ -1,0 +1,9 @@
+.stroke-text{display:block;width:100%;height:auto;overflow:visible;color:var(--fill-color);paint-order:stroke fill;}
+.stroke-text-line{fill:transparent;stroke:var(--stroke-color);stroke-width:var(--stroke-width);stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:1;}
+.stroke-text-wipe .stroke-text-line{animation:stroke-text-fill var(--draw-duration) var(--ease) var(--fill-delay) forwards;}
+.stroke-text-fade .stroke-text-line{animation:stroke-text-fade var(--draw-duration) var(--ease) var(--fill-delay) forwards;}
+.stroke-text-line{animation-play-state:paused;}
+.stroke-text-active .stroke-text-line{animation-play-state:running;}
+@keyframes stroke-text-fill{0%{fill:transparent;}100%{fill:var(--fill-color);}}
+@keyframes stroke-text-fade{0%{fill:transparent;opacity:.25;}100%{fill:var(--fill-color);opacity:1;}}
+@media (prefers-reduced-motion:reduce){.stroke-text-line{animation:none!important;fill:var(--fill-color);}}
