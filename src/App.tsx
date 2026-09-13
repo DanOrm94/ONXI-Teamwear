@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { products, type Product } from './products'
 import MoltenMetal from './components/MoltenMetal'
+import StrokeText from './components/StrokeText'
 
 type CartItem = Product & { size: string; quantity: number }
 
@@ -69,7 +70,7 @@ export default function App() {
         <section className="hero" style={{ background: '#050505', color: '#fff' }}>
           <div className="hero-copy">
             <p className="eyebrow" style={{ color: '#8f8f96' }}>01 / PERFORMANCE TEAMWEAR</p>
-            <h1>BUILT<br /><em>FOR THE</em><br />GAME.</h1>
+            <div className="hero-heading"><StrokeText text={'BUILT\nFOR THE\nGAME.'} strokeColor="#A78BFA" fillColor="#F8FAFC" strokeWidth={1.4} drawDuration={1.6} fillDelay={0.2} stagger={0.05} ease="power2.out" trigger="mount" fillMode="wipe" fontSize={128} fontWeight={800} letterSpacing={-4} /></div>
             <p className="hero-text" style={{ color: '#8f8f96' }}>Football essentials engineered for movement, confidence and the 90 minutes that matter.</p>
             <button className="primary-button" onClick={() => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' })}>Shop the collection <span>↗</span></button>
           </div>
