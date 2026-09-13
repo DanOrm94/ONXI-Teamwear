@@ -1,5 +1,5 @@
 .stroke-text{display:block;width:100%;height:auto;overflow:visible;color:var(--fill-color);paint-order:stroke fill;}
-.hero-heading .stroke-text{width:clamp(330px,43vw,620px);max-width:100%;}
+.hero-heading .stroke-text{width:clamp(396px,51.6vw,744px);max-width:100%;}
 .stroke-text-line{fill:transparent;stroke:var(--stroke-color);stroke-width:var(--stroke-width);stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:1;}
 .stroke-text-wipe .stroke-text-line{animation:stroke-text-fill var(--draw-duration) var(--ease) var(--fill-delay) forwards;}
 .stroke-text-fade .stroke-text-line{animation:stroke-text-fade var(--draw-duration) var(--ease) var(--fill-delay) forwards;}
